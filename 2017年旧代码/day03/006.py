@@ -1,0 +1,10 @@
+name = input ("请输入你的名字")
+age = input("请输入你的年龄")
+sex =  input ("请输入你的性别")
+height = input ("请输入你的身高")
+weight = input ("请输入你的体重")
+hobby = input ("请输入你的爱好")
+country = input ("请输入你所在的国家")
+dizhi = input ("请输入你的家庭住址")
+print("姓名:%s"%name,"年龄:%s"%age,"性别:%s"%sex,"身高:%s"%height,"体重:%s"%weight,"爱好:%s"%hobby,"国家:%s"%country,"家庭住址:%s"%dizhi)
+
