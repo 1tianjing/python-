@@ -15,7 +15,7 @@ class PlaneGame(object):
         self.__create_sprites()
         #4、设置定时器
         pygame.time.set_timer(CERATE_ENEMY_EVENT,1000)
-        pygame.time.set_timer(HERO_FIRE_EVENT,500)
+        #pygame.time.set_timer(HERO_FIRE_EVENT,500)
     
 
     def start_game(self):
@@ -96,24 +96,25 @@ class PlaneGame(object):
         pygame.sprite.groupcollide(self.hero.bullets,self.enemy_group, True, True)
         #2、敌机摧毁英雄
         enemies = pygame.sprite.spritecollide(self.hero,self.enemy_group, True)
+        pygame.sprite.groupcollide(self.hero.bullets,self.enemy_group, True, True)
         enemies1 = pygame.sprite.spritecollide(self.hero2,self.enemy_group, True)
+        
+        pygame.sprite.groupcollide(self.hero2.bullets,self.enemy_group, True, True)
+        #2、敌机摧毁英雄
         #判断列表是否有内容
-        if len(enemies) > 0:
+        if len(enemies) > 0 or len(enemies1):
             #让英雄牺牲
             self.hero.kill()
             #结束游戏
             PlaneGame.__game_over()
     def __update_sprites(self):
         '''更新精灵组'''
-        for group in [self.back_group,self.enemy_group,self.hero_group,self.hero.bullets]:
+        for group in [self.back_group,self.enemy_group,self.hero_group,self.hero.bullets,self.hero2.bullets]:
+
             #更新精灵组里面所有精灵的位置
             group.update()
             #绘制到屏幕上
             group.draw(self.screen)
-            self.hero_group.update()
-            self.hero_group.draw(self.screen)
-        self.hero.bullets.update()
-        self.hero.bullets.draw(self.screen)
     @staticmethod
     def __game_over():
         '''游戏结束的方法'''

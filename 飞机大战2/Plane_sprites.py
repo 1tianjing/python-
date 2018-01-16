@@ -78,22 +78,22 @@ class Hero(GameSprites):
         #判断屏幕高边界
         if self.rect.left < 0:
             self.rect.left = 0
-        if self.rect.right > SCREEN_RECT.right:
+        elif self.rect.right > SCREEN_RECT.right:
             self.rect.right = SCREEN_RECT.right
   
 
     def fire(self):
         #print('发射子弹')
         #for i in (1,2,3):
-            #1、创建子弹
-            bullet = Bullet()
-            #2、设置子弹的位置
-            bullet.rect.bottom = self.rect.y - 20
-            bullet.rect.centerx = self.rect.centerx
-            bullet.rect.bottom = self.rect.y -20
-            bullet.rect.centerx = self.rect.centerx
-            #3、将子弹添加到精灵组
-            self.bullets.add(bullet)
+        #1、创建子弹
+        bullet = Bullet()
+        #2、设置子弹的位置
+        bullet.rect.bottom = self.rect.y - 20
+        bullet.rect.centerx = self.rect.centerx
+        bullet.rect.bottom = self.rect.y -20
+        bullet.rect.centerx = self.rect.centerx
+        #3、将子弹添加到精灵组
+        self.bullets.add(bullet)
 
 
 class Bullet(GameSprites):
